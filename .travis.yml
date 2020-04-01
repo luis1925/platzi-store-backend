@@ -1,0 +1,31 @@
+language: node_js
+cache: 
+    directories:
+        - node_modules
+        - ~/.npm
+
+node_js:
+    - '12'
+
+git:
+    depth: 3
+
+script: 
+    - yarn test
+
+notifications:
+    # slack: canal:token
+    email:
+        reciepients:
+        -   valderramagastiaburuluisfernan@gmail.com
+    on_success: always
+    on_failure: always    
+
+deploy:
+    provider: heroku
+    skip-cleanup: true
+    keep-history: true
+    api-key: b78ee3d5-92f0-4028-88c9-1c2b15783be3
+    app: luis1925-platzi-store-backend
+    on:
+        repo: luis1925/platzi-store-backend
